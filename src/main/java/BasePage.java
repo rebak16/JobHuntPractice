@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
 
     private String baseURL = "https://youtube.com";
-    private WebDriver driver = WebDriverManager.getDriver();
+    private WebDriver driver = WebDriverManager.initDriver();
     private WebDriverWait wait = new WebDriverWait(driver, 10);
     private String username = System.getenv("UserName");
     private String password = System.getenv("PASSWORD");
