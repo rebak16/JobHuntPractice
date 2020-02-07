@@ -10,7 +10,7 @@ public class WebDriverManager {
     }
 
     public static WebDriver getDriver() {
-        System.setProperty("webdriver.chrome.driver", "/Downloads/chromedriver_linux64 (3)/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
         driver.manage().window().maximize();
         return driver;
     }
@@ -19,7 +19,7 @@ public class WebDriverManager {
         if (driver != null) {
             return driver;
         } else {
-            System.setProperty("webdriver.chrome.driver", "/Downloads/chromedriver_linux64 (3)/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
             driver = new ChromeDriver();
         }
         return driver;
