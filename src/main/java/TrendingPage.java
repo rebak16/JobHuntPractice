@@ -24,8 +24,8 @@ public class TrendingPage extends BasePage{
         return pageOpened.isEnabled();
     }
 
-    public void playingVideo() {
-        wait.until(ExpectedConditions.elementToBeClickable(video)).click();
+   // public void playingVideo() {
+     //   wait.until(ExpectedConditions.elementToBeClickable(video)).click();
 
-    }
+    //}
 }

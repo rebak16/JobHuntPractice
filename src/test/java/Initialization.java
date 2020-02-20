@@ -16,9 +16,9 @@ public class Initialization {
         driver = WebDriverManager.getDriver();
     }
 
-    @AfterAll
-    public void teardown() {
-        WebDriverManager.getDriver().quit();
-    }
+    //@AfterAll
+   // public void teardown() {
+   //     WebDriverManager.getDriver().quit();
+    //}
 
 }

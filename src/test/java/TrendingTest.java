@@ -12,12 +12,12 @@ public class TrendingTest extends Initialization {
         trendingPage.navigate();
     }
 
-    @Test
-    public void getTrendingPage(){
-        mainNavBar.checkTrending();
-        trendingPage.playingVideo();
-        assertTrue(trendingPage.getPageOpened());
-    }
+    //@Test
+    //public void getTrendingPage(){
+    //    mainNavBar.checkTrending();
+    //    trendingPage.playingVideo();
+    //    assertTrue(trendingPage.getPageOpened());
+    //}
 
 
 }

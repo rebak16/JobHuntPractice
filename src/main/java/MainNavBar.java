@@ -30,6 +30,13 @@ public class MainNavBar extends BasePage {
     private WebElement subscriptions;
     @FindBy(partialLinkText = "Library")
     private WebElement library;
+    @FindBy(xpath = "//*[text()='Register']")
+    private WebElement registerButton;
+    @FindBy(xpath = "//*[text()='Login']")
+    private WebElement loginButton;
+    @FindBy(xpath = "//*[@class='search-btn']")
+    private WebElement search;
+
 
     public MainNavBar() {
         this.driver = getDriver();
@@ -86,5 +93,17 @@ public class MainNavBar extends BasePage {
 
     public void checkTrending(){
         getTrending().click();
+    }
+
+    public void clickRegisterButton(){
+        registerButton.click();
+    }
+
+    public void clickLoginButton(){
+        loginButton.click();
+    }
+
+    public void clickSearchButton(){
+        search.click();
     }
 }
