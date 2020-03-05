@@ -1,99 +1,48 @@
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainNavBar extends BasePage {
 
     private WebDriver driver;
-    @FindBy(id = "guide-icon")
-    private WebElement menuButton;
-    @FindBy(id = "logo")
-    private WebElement logo;
-    @FindBy(id = "sb_ifc50")
-    private WebElement searchField;
-    @FindBy(id = "search-icon-legacy")
-    private WebElement searchButton;
-    @FindBy(className = "style-scope yt-icon-button")
-    private WebElement createVideo;
-    @FindBy(className = "style-scope ytd-topbar-menu-button-renderer style-default")
-    private WebElement applications;
-    @FindBy(className = "style-scope ytd-notification-topbar-button-renderer")
-    private WebElement notifications;
-    @FindBy(className = "style-scope yt-img-shadow")
-    private WebElement profilePicture;
-    @FindBy(partialLinkText = "Home")
-    private WebElement homePage;
-    @FindBy(xpath = "//*[text()='Trending']")
-    private WebElement trending;
-    @FindBy(xpath = "//*[text()='Subscriptions']")
-    private WebElement subscriptions;
-    @FindBy(partialLinkText = "Library")
-    private WebElement library;
+    private WebDriverWait wait;
     @FindBy(xpath = "//*[text()='Register']")
     private WebElement registerButton;
     @FindBy(xpath = "//*[text()='Login']")
     private WebElement loginButton;
-    @FindBy(xpath = "//*[@class='search-btn']")
+    @FindBy(xpath = "//*[text()='List Of Users']")
+    private WebElement listOfUsers;
+    @FindBy(xpath = "//*[@class='search-txt']")
     private WebElement search;
-
+    @FindBy(xpath = "//*[text()='Drawing canvas with an image picked with Cordova Camera Plugin']")
+    private WebElement question;
+    @FindBy(xpath = "//*[@class='voteup']")
+    private WebElement voteUp;
+    @FindBy(xpath = "//*[@class='vote']")
+    private WebElement voteDown;
+    @FindBy(xpath = "//*[text()='Add new question']")
+    private WebElement addNewQuestion;
+    @FindBy(xpath = "//*[text()='Logout']")
+    private WebElement logoutButton;
+    @FindBy(xpath = "//*[text()='Delete']")
+    private WebElement delete;
+    @FindBy(xpath = "//*[text()=57]")
+    private WebElement checkVote;
 
     public MainNavBar() {
         this.driver = getDriver();
+        this.wait = getWait();
         PageFactory.initElements(driver, this);
     }
 
-    public WebElement getMenuButton() {
-        return menuButton;
+    public void clickOnUsers(){
+        listOfUsers.click();
     }
 
-    public WebElement getLogo() {
-        return logo;
-    }
-
-    public WebElement getSearchField() {
-        return searchField;
-    }
-
-    public WebElement getSearchButton() {
-        return searchButton;
-    }
-
-    public WebElement getCreateVideo() {
-        return createVideo;
-    }
-
-    public WebElement getApplications() {
-        return applications;
-    }
-
-    public WebElement getNotifications() {
-        return notifications;
-    }
-
-    public WebElement getProfilePicture() {
-        return profilePicture;
-    }
-
-    public WebElement getHomePage() {
-        return homePage;
-    }
-
-    public WebElement getTrending() {
-        return trending;
-    }
-
-    public WebElement getSubscriptions() {
-        return subscriptions;
-    }
-
-    public WebElement getLibrary() {
-        return library;
-    }
-
-    public void checkTrending(){
-        getTrending().click();
-    }
 
     public void clickRegisterButton(){
         registerButton.click();
@@ -103,7 +52,41 @@ public class MainNavBar extends BasePage {
         loginButton.click();
     }
 
-    public void clickSearchButton(){
+    public void clickLogoutButton(){
+        logoutButton.click();
+    }
+
+    public void clickOnQuestion() {
+        question.click();
+    }
+
+    public boolean checkLogout(){
+        return logoutButton.isDisplayed();
+    }
+
+    public void clickOnSearchButton(){
         search.click();
+        search.sendKeys("hi");
+        search.sendKeys(Keys.ENTER);
+    }
+
+    public void addNewQuestion(){
+        addNewQuestion.click();
+    }
+
+    public void delete(){
+        delete.click();
+    }
+
+    public void voteUp(){
+        voteUp.click();
+    }
+
+    public void voteDown(){
+        voteDown.click();
+    }
+
+    public Boolean checkVote(){
+        return checkVote.isDisplayed();
     }
 }

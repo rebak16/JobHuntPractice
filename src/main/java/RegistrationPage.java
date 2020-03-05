@@ -22,7 +22,7 @@ public class RegistrationPage extends BasePage{
     private WebElement confirmPassword;
     @FindBy(xpath = "//*[text()='Register']")
     private WebElement registerButton;
-    @FindBy(xpath = "    //*[text()=\"Go back to Homepage\"]\n")
+    @FindBy(xpath = "//*[text()=\"Go back to Homepage\"]\n")
     private WebElement goBackButton;
 
 

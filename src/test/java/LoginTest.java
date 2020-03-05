@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest extends Initialization{
 
@@ -11,11 +13,14 @@ public class LoginTest extends Initialization{
         loginPage.navigate();
     }
 
-    @Test
-    public void login(){
+    @ParameterizedTest
+    @CsvFileSource(resources = "login.csv", numLinesToSkip = 1)
+    public void login(String username, String password){
         mainNavBar.clickLoginButton();
-        loginPage.clickOnUserName();
-        loginPage.clickOnPassword();
+        loginPage.clickOnUserName(username);
+        loginPage.clickOnPassword(password);
         loginPage.clickOnLogin();
+        assertTrue(mainNavBar.checkLogout());
+        mainNavBar.clickLogoutButton();
     }
 }

@@ -25,12 +25,12 @@ public class LoginPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
-    public void clickOnUserName(){
-        username.sendKeys("ka");
+    public void clickOnUserName(String userName){
+        username.sendKeys(userName);
     }
 
-    public void clickOnPassword(){
-        password.sendKeys("ka");
+    public void clickOnPassword(String passWord){
+        password.sendKeys(passWord);
     }
 
     public void clickOnLogin(){
