@@ -1,7 +1,5 @@
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 
@@ -11,14 +9,15 @@ public class Initialization {
 
     private WebDriver driver;
 
-    @BeforeAll
+    @BeforeEach
     public void init() {
-        driver = WebDriverManager.getDriver();
+        driver = WebDriverManager.initDriver();
     }
 
-    @AfterAll
+    @AfterEach
     public void teardown() {
-        WebDriverManager.getDriver().quit();
+        WebDriverManager.getDriver().close();
+        WebDriverManager.quit();
     }
 
 }
