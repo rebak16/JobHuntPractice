@@ -1,15 +1,16 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage{
 
     private WebDriver driver;
     private WebDriverWait webDriverWait;
+    private MainNavBar mainNavBar = new MainNavBar();
     @FindBy(xpath = "//*[@name='username']")
     private WebElement username;
     @FindBy(xpath = "//*[@name='password']")
@@ -25,7 +26,23 @@ public class LoginPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
+    public void loginWithValidData() {
+        try {
+            mainNavBar.clickLoginButton();
+            clickOnUserName("k");
+            clickOnPassword("k");
+            clickOnLogin();
+        } catch (NoSuchElementException  | TimeoutException e) {
+            mainNavBar.clickLogoutButtonForLogin();
+            mainNavBar.clickLoginButton();
+            clickOnUserName("k");
+            clickOnPassword("k");
+            clickOnLogin();
+        }
+    }
+
     public void clickOnUserName(String userName){
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(username));
         username.sendKeys(userName);
     }
 

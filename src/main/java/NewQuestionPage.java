@@ -14,7 +14,8 @@ public class NewQuestionPage extends BasePage{
     private WebElement messageOfNewQuestion;
     @FindBy(xpath = "//*[text()='Add new question']")
     private WebElement addNewQuestion;
-    @FindBy(xpath = "//*[text()='k']")
+    @FindBy(xpath = "//*[text()='Comment\n" +
+            "                ']")
     private WebElement newQuestion;
 
     public NewQuestionPage() {
@@ -26,16 +27,16 @@ public class NewQuestionPage extends BasePage{
         addNewQuestion.click();
     }
 
-    public void fillTitleField(){
-        titleOfNewQuestion.sendKeys("k");
+    public void fillTitleField(String titleOfQuestion){
+        titleOfNewQuestion.sendKeys(titleOfQuestion);
     }
 
-    public void fillMessageField(){
-        messageOfNewQuestion.sendKeys("k");
+    public void fillMessageField(String messageOfQuestion){
+        messageOfNewQuestion.sendKeys(messageOfQuestion);
     }
 
-    public String checkNewQuestion(){
-        return newQuestion.getText();
+    public boolean checkNewQuestion(){
+        return newQuestion.isDisplayed();
     }
 
 }

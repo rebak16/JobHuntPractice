@@ -22,7 +22,7 @@ public class NewAnswerPage extends BasePage{
         addNewAnswer.click();
     }
 
-    public void fillTitleField(){
-        messageOfNewAnswer.sendKeys("g");
+    public void fillTitleField(String titleField){
+        messageOfNewAnswer.sendKeys(titleField);
     }
 }

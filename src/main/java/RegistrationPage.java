@@ -8,6 +8,7 @@ public class RegistrationPage extends BasePage{
 
     private WebDriver driver;
     private WebDriverWait wait;
+    private MainNavBar mainNavBar = new MainNavBar();
     @FindBy(xpath = "//*[@name='first_name']")
     private WebElement firstName;
     @FindBy(xpath = "//*[@name='last_name']")
@@ -30,6 +31,17 @@ public class RegistrationPage extends BasePage{
         this.wait = getWait();
         this.driver = getDriver();
         PageFactory.initElements(driver, this);
+    }
+
+    public void register(){
+        mainNavBar.clickRegisterButton();
+        clickOnFirstName("k");
+        clickOnLastName("k");
+        clickOnEmail("k@k");
+        clickOnUserName("k");
+        clickOnPassword("k");
+        clickOnConfirmPassword("k");
+        clickOnRegister();
     }
 
     public void clickOnFirstName(String firstNameField){

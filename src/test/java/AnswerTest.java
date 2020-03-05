@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AnswerTest extends Initialization{
@@ -12,22 +15,19 @@ public class AnswerTest extends Initialization{
     @BeforeEach
     public void setup(){
         loginPage.navigate();
+        loginPage.loginWithValidData();
     }
 
-    public void login(){
-        mainNavBar.clickLoginButton();
-        loginPage.clickOnUserName("k");
-        loginPage.clickOnPassword("k");
-        loginPage.clickOnLogin();
-    }
 
-    @Test
-    public void addNewAnswer(){
-        login();
+    @ParameterizedTest
+    @CsvFileSource(resources = "newAnswer.csv", numLinesToSkip = 1)
+    public void addNewAnswer(String titleField){
         mainNavBar.clickOnQuestion();
         questionPage.addNewAnswer();
-        newAnswerPage.fillTitleField();
+        newAnswerPage.fillTitleField(titleField);
         newAnswerPage.addNewAnswer();
         assertTrue(questionPage.checkAnswer());
+        questionPage.deleteAnswer();
+        questionPage.goBack();
     }
 }

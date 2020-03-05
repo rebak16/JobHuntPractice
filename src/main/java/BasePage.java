@@ -6,7 +6,7 @@ public abstract class BasePage {
 
     private String baseURL = "http://0.0.0.0:8000/list?";
     private WebDriver driver = WebDriverManager.getDriver();
-    private WebDriverWait wait = new WebDriverWait(driver, 10);
+    private WebDriverWait wait = new WebDriverWait(driver, 2);
     private String username = System.getenv("UserName");
     private String password = System.getenv("PASSWORD");
 

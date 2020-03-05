@@ -16,11 +16,12 @@ public class LoginTest extends Initialization{
     @ParameterizedTest
     @CsvFileSource(resources = "login.csv", numLinesToSkip = 1)
     public void login(String username, String password){
-        mainNavBar.clickLoginButton();
+        mainNavBar.clickLogoutButtonForLogin();
+        //mainNavBar.clickLoginButton();
         loginPage.clickOnUserName(username);
         loginPage.clickOnPassword(password);
         loginPage.clickOnLogin();
         assertTrue(mainNavBar.checkLogout());
-        mainNavBar.clickLogoutButton();
+        mainNavBar.clickLogoutButtonForLogin();
     }
 }

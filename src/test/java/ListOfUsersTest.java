@@ -13,22 +13,11 @@ public class ListOfUsersTest {
     @BeforeEach
     public void setup(){
         loginPage.navigate();
-    }
-
-    public void register(){
-        mainNavBar.clickRegisterButton();
-        registrationPage.clickOnFirstName("k");
-        registrationPage.clickOnLastName("k");
-        registrationPage.clickOnEmail("k@k");
-        registrationPage.clickOnUserName("k");
-        registrationPage.clickOnPassword("k");
-        registrationPage.clickOnConfirmPassword("k");
-        registrationPage.clickOnRegister();
+        //registrationPage.register();
     }
 
     @Test
     public void checkListOfUsers(){
-        //register();
         mainNavBar.clickOnUsers();
         assertTrue(listOfUsersPage.checkUser());
     }

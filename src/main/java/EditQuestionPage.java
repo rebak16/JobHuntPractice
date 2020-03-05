@@ -25,8 +25,8 @@ public class EditQuestionPage extends BasePage {
         editNewQuestion.click();
     }
 
-    public void fillTitleField(){
-        titleOfEditQuestion.sendKeys("k");
+    public void fillTitleField(String titleOfEditedQuestion){
+        titleOfEditQuestion.sendKeys(titleOfEditedQuestion);
     }
 
     public void deleteFromTitleField(){

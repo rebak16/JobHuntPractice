@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuestionTest extends Initialization {
@@ -14,13 +17,7 @@ public class QuestionTest extends Initialization {
     @BeforeEach
     public void setup(){
         loginPage.navigate();
-    }
-
-    public void login(){
-        mainNavBar.clickLoginButton();
-        loginPage.clickOnUserName("k");
-        loginPage.clickOnPassword("k");
-        loginPage.clickOnLogin();
+        loginPage.loginWithValidData();
     }
 
     @Test
@@ -29,22 +26,21 @@ public class QuestionTest extends Initialization {
         assertEquals("Drawing canvas with an image picked with Cordova Camera Plugin", questionPage.checkQuestion());
     }
 
-    @Test
-    public void editQuestion(){
-        login();
+    @ParameterizedTest
+    @CsvFileSource(resources = "editQuestion.csv", numLinesToSkip = 1)
+    public void editQuestion(String titleOfEditQuestion, String checkQuestion){
         mainNavBar.clickOnQuestion();
         questionPage.editQuestion();
-        editQuestionPage.fillTitleField();
+        editQuestionPage.fillTitleField(titleOfEditQuestion);
         editQuestionPage.editNewQuestion();
         questionPage.editQuestion();
         editQuestionPage.deleteFromTitleField();
         editQuestionPage.editNewQuestion();
-        assertEquals("Drawing canvas with an image picked with Cordova Camera Plugin", questionPage.checkQuestion());
+        assertEquals(checkQuestion, questionPage.checkQuestion());
     }
 
     @Test
     public void writeComment(){
-        login();
         mainNavBar.clickOnQuestion();
         questionPage.comment();
         commentPage.fillMessageField();
@@ -52,14 +48,14 @@ public class QuestionTest extends Initialization {
         assertTrue(commentPage.checkComment());
     }
 
-    @Test
-    public void addNewQuestion(){
-        login();
+    @ParameterizedTest
+    @CsvFileSource(resources = "newQuestion.csv", numLinesToSkip = 1)
+    public void addNewQuestion(String titleOfQuestion, String messageOfQuestion){
         mainNavBar.addNewQuestion();
-        newQuestionPage.fillTitleField();
-        newQuestionPage.fillMessageField();
+        newQuestionPage.fillTitleField(titleOfQuestion);
+        newQuestionPage.fillMessageField(messageOfQuestion);
         newQuestionPage.addNewQuestion();
-        assertEquals("k", newQuestionPage.checkNewQuestion());
+        assertTrue(newQuestionPage.checkNewQuestion());
         questionPage.goBack();
         mainNavBar.delete();
     }

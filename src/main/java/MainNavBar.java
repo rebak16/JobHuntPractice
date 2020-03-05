@@ -1,4 +1,5 @@
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,7 @@ public class MainNavBar extends BasePage {
     }
 
     public void clickOnUsers(){
+        wait.until(ExpectedConditions.elementToBeClickable(listOfUsers));
         listOfUsers.click();
     }
 
@@ -49,11 +51,32 @@ public class MainNavBar extends BasePage {
     }
 
     public void clickLoginButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
     }
 
-    public void clickLogoutButton(){
-        logoutButton.click();
+    public void clickLoginForNewAnswer(){
+        try {
+            loginButton.click();
+        } catch (NoSuchElementException e) {
+            question.click();
+        }
+    }
+
+    public void clickLogoutButtonForRegister(){
+        try {
+            logoutButton.click();
+        } catch (NoSuchElementException e) {
+            registerButton.click();
+        }
+    }
+
+    public void clickLogoutButtonForLogin(){
+        try {
+            logoutButton.click();
+        } catch (NoSuchElementException e) {
+            loginButton.click();
+        }
     }
 
     public void clickOnQuestion() {
@@ -61,12 +84,16 @@ public class MainNavBar extends BasePage {
     }
 
     public boolean checkLogout(){
-        return logoutButton.isDisplayed();
+        try {
+            return logoutButton.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
-    public void clickOnSearchButton(){
+    public void clickOnSearchButton(String searchResult){
         search.click();
-        search.sendKeys("hi");
+        search.sendKeys(searchResult);
         search.sendKeys(Keys.ENTER);
     }
 

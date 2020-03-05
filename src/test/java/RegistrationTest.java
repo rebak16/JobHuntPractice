@@ -16,6 +16,7 @@ public class RegistrationTest extends Initialization{
     @ParameterizedTest
     @CsvFileSource(resources = "/registration.csv", numLinesToSkip = 1)
     public void register(String firstName, String lastName, String email, String userName, String password, String confirmPassword){
+        mainNavBar.clickLogoutButtonForRegister();
         mainNavBar.clickRegisterButton();
         registrationPage.clickOnFirstName(firstName);
         registrationPage.clickOnLastName(lastName);
@@ -24,6 +25,7 @@ public class RegistrationTest extends Initialization{
         registrationPage.clickOnPassword(password);
         registrationPage.clickOnConfirmPassword(confirmPassword);
         registrationPage.clickOnRegister();
+        registrationPage.clickOnGOBack();
     }
 
 }
