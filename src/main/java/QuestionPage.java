@@ -42,7 +42,7 @@ public class QuestionPage extends BasePage{
     }
 
     public void comment(){
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(comment));
+      //  webDriverWait.until(ExpectedConditions.elementToBeClickable(comment));
         comment.click();
     }
 

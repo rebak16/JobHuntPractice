@@ -33,11 +33,11 @@ public class LoginPage extends BasePage{
             clickOnPassword("k");
             clickOnLogin();
         } catch (NoSuchElementException  | TimeoutException e) {
-            mainNavBar.clickLogoutButtonForLogin();
-            mainNavBar.clickLoginButton();
-            clickOnUserName("k");
-            clickOnPassword("k");
-            clickOnLogin();
+          //  mainNavBar.clickLogoutButtonForLogin();
+          //  mainNavBar.clickLoginButton();
+          //  clickOnUserName("k");
+          //  clickOnPassword("k");
+          //  clickOnLogin();
         }
     }
 

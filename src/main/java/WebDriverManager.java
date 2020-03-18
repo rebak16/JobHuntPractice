@@ -9,33 +9,33 @@ import java.net.URL;
 
 public class WebDriverManager {
 
-    private static WebDriver driver = new ChromeDriver();
-    //private static String gridUrl = "https://http://localhost:4444/grid/console";
+    private static WebDriver driver = null;
+    private static String gridUrl = "http://localhost:4444/wd/hub";
 
 
     private WebDriverManager() {
     }
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver1() {
         System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
         driver.manage().window().maximize();
         return driver;
     }
 
-    //public static WebDriver getDriver() {
-      //  if (driver == null) {
-        //    try {
-          //      DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-            //    capabilities.setBrowserName("chrome");
-              //  capabilities.setPlatform(Platform.LINUX);
-              //  driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
-          //  } catch (MalformedURLException e) {
-            //    e.fillInStackTrace();
-           // }
-       // }
-
-       // return driver;
-    //}
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            try {
+                DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                capabilities.setBrowserName("firefox");
+                capabilities.setPlatform(Platform.LINUX);
+                driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+            } catch (MalformedURLException e) {
+                e.fillInStackTrace();
+            }
+        }
+        driver.manage().window().maximize();
+        return driver;
+    }
 
     public static WebDriver initDriver() {
         if (driver != null) {

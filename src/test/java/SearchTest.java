@@ -19,8 +19,8 @@ public class SearchTest extends Initialization{
 
     @ParameterizedTest
     @CsvFileSource(resources = "search.csv", numLinesToSkip = 1)
-    public void search(String search){
+    public void search(String search, String errorMessage){
         mainNavBar.clickOnSearchButton(search);
-        assertTrue(searchPage.seeSearchResult());
+        assertTrue(searchPage.seeSearchResult(), errorMessage);
     }
 }

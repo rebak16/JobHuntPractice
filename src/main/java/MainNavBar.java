@@ -1,7 +1,4 @@
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -50,9 +47,12 @@ public class MainNavBar extends BasePage {
         registerButton.click();
     }
 
-    public void clickLoginButton(){
-        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-        loginButton.click();
+    public void clickLoginButton() {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+            loginButton.click();
+        } catch (NoSuchElementException | TimeoutException e) {
+        }
     }
 
     public void clickLoginForNewAnswer(){
@@ -74,8 +74,8 @@ public class MainNavBar extends BasePage {
     public void clickLogoutButtonForLogin(){
         try {
             logoutButton.click();
-        } catch (NoSuchElementException e) {
-            loginButton.click();
+        } catch (NoSuchElementException | TimeoutException e) {
+           // loginButton.click();
         }
     }
 

@@ -7,14 +7,14 @@ import org.openqa.selenium.WebDriver;
 
 public class Initialization {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
     @BeforeEach
     public void init() {
         driver = WebDriverManager.getDriver();
     }
 
-    //@AfterEach
+   // @AfterEach
     //public void teardown() {
       //  WebDriverManager.getDriver().close();
        // WebDriverManager.quit();

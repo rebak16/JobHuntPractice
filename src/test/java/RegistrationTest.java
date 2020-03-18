@@ -10,7 +10,7 @@ public class RegistrationTest extends Initialization{
 
     @BeforeEach
     public void setup(){
-        registrationPage.navigate();
+        //registrationPage.navigate();
     }
 
     @ParameterizedTest

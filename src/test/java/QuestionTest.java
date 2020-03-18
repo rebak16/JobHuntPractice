@@ -45,7 +45,7 @@ public class QuestionTest extends Initialization {
         questionPage.comment();
         commentPage.fillMessageField();
         commentPage.addNewComment();
-        assertTrue(commentPage.checkComment());
+        assertEquals(commentPage.checkComment(), true, "Missing feature");
     }
 
     @ParameterizedTest

@@ -1,5 +1,5 @@
-FirstName, LastName, Email, Username, Password, ConfrimPassword
-ka, ka, ka@ka, ka, ka, ka
-ka, ka, ka@, ka, ka, ka
-ka, ka, ka@ka, ka, ka, csa
-ka, csa, csa, kacsa, csa, ka
+FirstName, LastName, Email, Username, Password, ConfrimPassword, errorMessage
+ka, csa, ka@csa, ki, kacsa, kacsa, successfull
+ka, csa, ka@, kacsa, kacsa, kacsa, wrong email
+ka, csa, ka@csa, kacsa, kacsa, csa, wrong confirm
+ka, csa, csa, kacsa, csa, ka, wrong email and confirm
