@@ -25,8 +25,8 @@ public class WebDriverManager {
     public static WebDriver getDriver() {
         if (driver == null) {
             try {
-                DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-                capabilities.setBrowserName("chrome");
+                DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                capabilities.setBrowserName("firefox");
                 capabilities.setPlatform(Platform.LINUX);
                 driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
             } catch (MalformedURLException e) {
