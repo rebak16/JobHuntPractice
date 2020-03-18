@@ -33,7 +33,7 @@ public class WebDriverManager {
                 e.fillInStackTrace();
             }
         }
-        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
+       // System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
         driver.manage().window().maximize();
         return driver;
     }
