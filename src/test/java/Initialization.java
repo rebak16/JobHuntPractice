@@ -14,10 +14,10 @@ public class Initialization {
         driver = WebDriverManager.getDriver();
     }
 
-   // @AfterEach
-    //public void teardown() {
-      //  WebDriverManager.getDriver().close();
-       // WebDriverManager.quit();
-    //}
+    @AfterEach
+    public void teardown() {
+        WebDriverManager.getDriver().close();
+        WebDriverManager.quit();
+    }
 
 }
