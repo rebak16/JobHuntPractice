@@ -18,7 +18,7 @@ public class WebDriverManager {
     }
 
     public static WebDriver getDriver() {
-        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver1");
         driver.manage().window().maximize();
         return driver;
     }
@@ -34,7 +34,7 @@ public class WebDriverManager {
                 e.fillInStackTrace();
             }
         }
-        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver1");
         driver.manage().window().maximize();
         return driver;
     }
@@ -43,7 +43,7 @@ public class WebDriverManager {
         if (driver != null) {
             return driver;
         } else {
-            System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver1");
             driver = new ChromeDriver();
         }
         return driver;
