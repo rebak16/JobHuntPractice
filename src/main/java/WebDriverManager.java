@@ -1,4 +1,3 @@
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,8 +30,8 @@ public class WebDriverManager {
                 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                 capabilities.setBrowserName("firefox");
                 capabilities.setPlatform(Platform.LINUX);
-                driver = new RemoteWebDriver(capabilities);
-            } catch (NoSuchElementException e) {
+                driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
+            } catch (MalformedURLException e) {
                 e.fillInStackTrace();
             }
         }
