@@ -1,6 +1,7 @@
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -9,20 +10,20 @@ import java.net.URL;
 
 public class WebDriverManager {
 
-    private static WebDriver driver = null;
+    private static WebDriver driver = new ChromeDriver();
     private static String gridUrl = "http://localhost:4444/wd/hub";
 
 
     private WebDriverManager() {
     }
 
-    public static WebDriver getDriver1() {
+    public static WebDriver getDriver() {
         System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
         driver.manage().window().maximize();
         return driver;
     }
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver1() {
         if (driver == null) {
             try {
                 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -33,7 +34,7 @@ public class WebDriverManager {
                 e.fillInStackTrace();
             }
         }
-        // System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver");
         driver.manage().window().maximize();
         return driver;
     }
