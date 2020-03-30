@@ -1,6 +1,8 @@
 # Created by rebak at 2020. 03. 19.
-Feature: #Enter feature name here
-  # Enter feature description here
+Feature: List of users
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: List of users
+    Given Open the Chrome and start application
+    When I click on list of users
+    And Check the users
+    Then I see the users

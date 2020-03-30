@@ -18,7 +18,7 @@ public class WebDriverManager {
     }
 
     public static WebDriver getDriver1() {
-        System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver1");
+        System.setProperty("webdriver.chrome.driver", "/src/test/resources/chromedriver1");
         driver.manage().window().maximize();
         return driver;
     }
@@ -26,7 +26,7 @@ public class WebDriverManager {
     public static WebDriver getDriver() {
         if (driver == null) {
             try {
-                System.setProperty("webdriver.chrome.driver", "/src/main/resources/geckodriver1");
+                System.setProperty("webdriver.gecko.driver", "/src/test/resources/geckodriver1");
                 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                 capabilities.setBrowserName("firefox");
                 capabilities.setPlatform(Platform.LINUX);
@@ -43,7 +43,7 @@ public class WebDriverManager {
         if (driver != null) {
             return driver;
         } else {
-            System.setProperty("webdriver.chrome.driver", "/src/main/resources/chromedriver1");
+            System.setProperty("webdriver.chrome.driver", "/src/test/resources/chromedriver1");
             driver = new ChromeDriver();
         }
         return driver;

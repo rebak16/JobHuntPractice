@@ -1,6 +1,9 @@
 # Created by rebak at 2020. 03. 19.
-Feature: #Enter feature name here
+Feature: Search
   # Enter feature description here
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: Search
+    Given Open the Chrome and start application
+    When I click on search button
+    And I fill the field
+    Then I see the results
