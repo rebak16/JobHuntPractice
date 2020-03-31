@@ -11,7 +11,7 @@ public class LoginPage extends BasePage{
     private WebDriver driver;
     private WebDriverWait webDriverWait;
     private MainNavBar mainNavBar = new MainNavBar();
-    private String finalURL = "http://0.0.0.0:8000/";
+    private String finalURL = "http://172.17.0.1:8000/";
     @FindBy(xpath = "//*[@name='username']")
     private WebElement username;
     @FindBy(xpath = "//*[@name='password']")
