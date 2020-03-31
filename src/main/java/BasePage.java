@@ -4,7 +4,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
-    private String baseURL = "http://0.0.0.0:8000/";
+    private String baseURL = "http://localhost:8080/jenkins";
     private WebDriver driver = WebDriverManager.getDriver();
     private WebDriverWait wait = new WebDriverWait(driver, 2);
     private String username = System.getenv("UserName");
