@@ -2,17 +2,17 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public abstract class BasePage {
 
-    private String baseURL = System.getenv("baseURL");
+    private String baseURL = "http://172.17.0.1:8000/";
     private WebDriver driver = WebDriverManager.getDriver();
-    private int timeout = Integer.parseInt(System.getenv("TIMEOUT"));
-    private WebDriverWait wait = new WebDriverWait(driver,timeout);
+    private WebDriverWait wait = new WebDriverWait(driver, 2);
     private String username = System.getenv("UserName");
     private String password = System.getenv("PASSWORD");
 
-    BasePage() {
+
+    public void navigate(){
+        driver.navigate().to(baseURL);
     }
 
     public String getBaseURL() {
