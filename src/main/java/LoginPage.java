@@ -11,6 +11,7 @@ public class LoginPage extends BasePage{
     private WebDriver driver;
     private WebDriverWait webDriverWait;
     private MainNavBar mainNavBar = new MainNavBar();
+    private String finalURL = "http://0.0.0.0:8000/";
     @FindBy(xpath = "//*[@name='username']")
     private WebElement username;
     @FindBy(xpath = "//*[@name='password']")
@@ -24,6 +25,10 @@ public class LoginPage extends BasePage{
         this.webDriverWait = getWait();
         this.driver = getDriver();
         PageFactory.initElements(driver, this);
+    }
+
+    public void navigate(){
+        driver.navigate().to(finalURL);
     }
 
     public void loginWithValidData() {

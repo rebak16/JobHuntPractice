@@ -1,6 +1,8 @@
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -23,7 +25,9 @@ public class WebDriverManager {
                 options.addArguments("--start-maximized");
                 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
                 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-                driver = new RemoteWebDriver(new URL(hubUrl), capabilities);
+                //capabilities.setBrowserName("chrome");
+                //capabilities.setPlatform(Platform.LINUX);
+                driver = new RemoteWebDriver(new URL(hubUrl), options);
             } catch (MalformedURLException e) {
                 e.fillInStackTrace();
             }
