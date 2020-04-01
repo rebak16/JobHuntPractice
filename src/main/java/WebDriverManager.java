@@ -13,11 +13,13 @@ public class WebDriverManager {
     private static String password = System.getenv("PASSWORD");
     private static String hubUser = System.getenv("hubUSERNAME");
     private static String hub = System.getenv("hubURL");
-    private static String hubUrl = "https://selenium:CoolCanvas19.@seleniumhub.codecool.codecanvas.hu/wd/hub";
+    private static String hubUrl = "https://" + hubUser + ":" + password + "@" + hub;
     private static WebDriver driver = null;
 
 
-    //Singleton driver
+    private WebDriverManager() {
+    }
+
     public static WebDriver getDriver() {
         if (driver == null) {
             try {
