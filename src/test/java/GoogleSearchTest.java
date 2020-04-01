@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,5 +14,6 @@ public class GoogleSearchTest extends Initialization {
     @Test
     public void googleSearch(){
         googleHomePage.clickSearch();
+        Assertions.assertTrue(googleHomePage.getCheckSearch());
     }
 }
