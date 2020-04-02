@@ -4,7 +4,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
-    private String baseURL = "\"http://172.17.0.1:8000/\"";
+    private String baseURL = "http://172.17.0.1:8000/";
     private WebDriver driver = WebDriverManager.getDriver();
     private WebDriverWait wait = new WebDriverWait(driver, 2);
     private String username = System.getenv("UserName");

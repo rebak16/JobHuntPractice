@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class WebDriverManager {
     private static String gridUrl = "http://localhost:4444/wd/hub";
-    private static WebDriver driver = null;
+    private static WebDriver driver = new ChromeDriver();
 
 
     public static WebDriver getDriver() {
