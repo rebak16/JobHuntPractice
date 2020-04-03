@@ -10,12 +10,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class WebDriverManager {
-    /*private static String password = System.getenv("PASSWORD");
+    private static String password = System.getenv("PASSWORD");
     private static String hubUser = System.getenv("hubUSERNAME");
     private static String hub = System.getenv("hubURL");
     private static String hubUrl = "https://" + hubUser + ":" + password + "@" + hub;
-    private static WebDriver driver = null;*/
-    private static String gridUrl = "http://localhost:4444/wd/hub";
     private static WebDriver driver = null;
 
 
@@ -31,7 +29,7 @@ public class WebDriverManager {
                 capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
                 //capabilities.setBrowserName("chrome");
                 //capabilities.setPlatform(Platform.LINUX);
-                driver = new RemoteWebDriver(new URL(gridUrl), options);
+                driver = new RemoteWebDriver(new URL(hubUrl), options);
             } catch (MalformedURLException e) {
                 e.fillInStackTrace();
             }
