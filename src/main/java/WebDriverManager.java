@@ -23,10 +23,10 @@ public class WebDriverManager {
     public static WebDriver getDriver() {
         if (driver == null) {
             try {
-                FirefoxOptions options = new FirefoxOptions();
+                ChromeOptions options = new ChromeOptions();
                 options.addArguments("--start-maximized");
-                DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+                DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
                 //capabilities.setBrowserName("chrome");
                 //capabilities.setPlatform(Platform.LINUX);
                 driver = new RemoteWebDriver(new URL(hubUrl), options);
